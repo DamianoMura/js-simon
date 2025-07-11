@@ -13,5 +13,20 @@ const simonSays = () => {
   console.log(`il numero estratto è ${insertion}...`)         //debug
   }
 }
+//creiamo una funzione dove come parametri diamo un array di numeri  e un numero
+//controlliamo se il numero è presente nell'array restituendo un booleano 
+const isPresent = (array,number) => {
+  //variabile di controllo
+let found=false;
+  for (let x=0 ; x<array.length-1 ; x++){
+  if (number===array[x]){
+   found=true;
+  }
+}
+return found;
+}
+//corpo principale programma
 
 simonSays();
+
+
