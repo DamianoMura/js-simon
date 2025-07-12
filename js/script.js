@@ -24,10 +24,10 @@ const   simonSays = () => {
     else if (isPresent(numbers,insertion)===true){
       // se viene trovato semplicemente decrementiamo l'indice i per reinserire il numero
       i--;
-      // console.log(`il numero ${insertion} non è stato inserito nell'array...`) //debug
+      console.log(`il numero ${insertion} non è stato inserito nell'array...`) //debug
     }
     
-    // console.log(`array a fine estrazione =  ${numbers} ...`) //debug
+    console.log(`array a fine estrazione =  ${numbers} ...`) //debug
 
   }
   return numbers;
@@ -37,9 +37,11 @@ const   simonSays = () => {
 const isPresent = (array,number)=>{
   //variabile di controllo
   let found=false;
-
   
-  for (let x=0 ; x<array.length-1 ; x++){
+  console.log(`array ${array} [${array.length}]- number ${number}`)
+  
+  for (let x=0 ; x<array.length ; x++){
+    // console.log(`x =  ${x} array.length-1 =${array.length}`) //debug
     if (number===array[x]){
       found=true;
     }
@@ -50,18 +52,24 @@ const isPresent = (array,number)=>{
 }
 
 
+
 //corpo principale programma
 
 const simonNumbers=simonSays();
 
-// console.log(`ecco i numeri di Simon ${simonNumbers} `) //debug
-foreach 
+console.log(`ecco i numeri di Simon ${simonNumbers} `) //debug
+
 //acquisisco tutte le componenti del dom che vogliamo manipolare
 
 let countdown = document.getElementById("countdown");
-let numbersList = document.getElementById("numbers-list");
+console.log(document.getElementById("numbers-list"));
 let answersForm = document.getElementById("numbers-form");
 let message = document.getElementById("message");
+
+
+// console.log(isPresent(array=[1,2,3,4,5],5)); //debug 
+
+
 
 
 
