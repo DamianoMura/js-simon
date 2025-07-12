@@ -62,24 +62,50 @@ for (let i = 0 ; i < array.length ; i++){
   numbersList.appendChild(number);
 }
 }
+
+//scriviamo una funzione per eseguire il countdown e stampare man mano il numero di secondi mancanti
 function showCountdown(){
   
   let countdown = document.getElementById("countdown");
-  let time=5; //da ri cambiare in 30 secondi per la consegna 
+  let time=1; //da ri cambiare in 30 secondi per la consegna 
   //stampiamo time dentro il tag di id countdown facendolo così partire da 30
   countdown.innerText=time;
   //prendiamo il valore identificativo di interval mentre inizializziamo la funzione set interval così da poter interrompere l'intervallo quando arriviamo a 0
+  
   const interval = setInterval(function(){
-    if(time>0){
-      
+    
       time--;
       countdown.innerText=time;
-      console.log(`siamo all'interno di showCountdown time: ${countdown.innerText}`) //debug
-    }
+      console.log(`siamo all'interno di showCountdown time: ${countdown.innerText} interval:${interval}`)                                          // debug
+      if(time===0){
+          clearInterval(interval);
+          play();
+      }
   },1000);
-  if(time===0){
-    clearInterval(interval);
-  }
+
+    
+
 
 }
 
+//scriviamo una funzione per togliere i numeri di Simon dalla pagina e dare il form di acquisizione
+function play(){
+  console.log("time===0 eliminiamo l'intervallo")
+          //prendiamo il div principale e selezioniamo tutti i suoi figli all'interno di mainDiv
+          let mainDiv = document.getElementsByClassName("vh-100").item(0).children;
+          // console.log(mainDiv);     //debug
+          //il primo figlio di mainDiv sarà il div id countdown
+          console.log(mainDiv.item(0).classList);     //debug
+          mainDiv.item(0).classList.add("d-none");
+          //il secondo figlio è instructions
+          console.log(mainDiv.item(1));     //debug
+          mainDiv.item(1).innerText="Inserisci tutti i numeri che riesci a ricordare, non importa l'ordine";
+          //il terzo figlio è la lista non ordinata dei numeri detti da Simon
+          console.log(mainDiv.item(2));     //debug
+          mainDiv.item(2).classList.add("d-none");
+          //il quarto figlio è il nostro form
+          console.log(mainDiv.item(3).classList);     //debug
+          mainDiv.item(3).className="d-flex";
+
+
+}  
