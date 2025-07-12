@@ -48,12 +48,20 @@ const isPresent = (array,number)=>{
   
   return found;
 }
+
+
 //corpo principale programma
 
 const simonNumbers=simonSays();
-// console.log(`ecco i numeri di Simon ${simonNumbers} `) //debug
 
+// console.log(`ecco i numeri di Simon ${simonNumbers} `) //debug
+foreach 
 //acquisisco tutte le componenti del dom che vogliamo manipolare
+
+let countdown = document.getElementById("countdown");
+let numbersList = document.getElementById("numbers-list");
+let answersForm = document.getElementById("numbers-form");
+let message = document.getElementById("message");
 
 
 
