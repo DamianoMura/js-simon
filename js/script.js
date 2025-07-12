@@ -41,7 +41,7 @@ const isPresent = (array,number)=>{
   console.log(`array ${array} [${array.length}]- number ${number}`)
   
   for (let x=0 ; x<array.length ; x++){
-    // console.log(`x =  ${x} array.length-1 =${array.length}`) //debug
+    console.log(`x =  ${x} array.length =${array.length}`) //debug * qui ho fatto un'errore di valutazione mettendo array.length-1 inizialmente, quindi non mi prendeva l'ultimo elemento dell'array dando la possibilità di inserire un altro numero uguale in ultima posizione, perchè sarebbe sfuggita al controllo mantenendo found su false
     if (number===array[x]){
       found=true;
     }
@@ -50,19 +50,27 @@ const isPresent = (array,number)=>{
   
   return found;
 }
-
-
+//inizializziamo un'arrow function per stampare i numeri di simon nella pagina
+const spawn = (array) => {
+let numbersList = document.getElementById("numbers-list");
+//considerato che numbers-list è un tag ul unstyled quindi ci si aspetta una lista orizzontale, creeremo al suo interno un li con il valore del numero detto da simon
+for (let i = 0 ; i < array.length ; i++){
+  let number=document.createElement('li');
+  number.innerText=array[i];
+  numbersList.appendChild(number);
+}
+}
 
 //corpo principale programma
 
 const simonNumbers=simonSays();
 
-console.log(`ecco i numeri di Simon ${simonNumbers} `) //debug
+spawn(simonNumbers) 
 
 //acquisisco tutte le componenti del dom che vogliamo manipolare
 
 let countdown = document.getElementById("countdown");
-console.log(document.getElementById("numbers-list"));
+
 let answersForm = document.getElementById("numbers-form");
 let message = document.getElementById("message");
 
