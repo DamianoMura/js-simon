@@ -12,9 +12,10 @@ spawn(simonNumbers);
 
 let message = document.getElementById("message");
 
-// console.log(isPresent(array=[1,2,3,4,5],5)); //debug 
 //evochiamo la funzione per mostrare il countdown e al suo interno evochiamo la funzione play per modificare quello che si può vedere all'interno della pagina
-showCountdown();
+startGame();
+
+insertNumbers(simonNumbers);
 
 
 
