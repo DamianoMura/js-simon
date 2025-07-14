@@ -102,7 +102,7 @@ function play(){
   mainDiv.item(2).classList.add("d-none");
   //il quarto figlio è il nostro form
   console.log(mainDiv.item(3).classList);     //debug
-  mainDiv.item(3).className="d-flex";
+  mainDiv.item(3).className="d-block";
 }  
 
 function insertNumbers(simonNumbers){
