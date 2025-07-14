@@ -180,11 +180,11 @@ if(myNumbers.length===simonNumbers.length){
   
   
   if(rememberedNumbers.length>0){
-    message.innerText=`<br> hai ricordato ${rememberedNumbers.length} numeri : ${rememberedNumbers}`;
+    message.innerHTML=`<br> hai ricordato ${rememberedNumbers.length} numeri : ${rememberedNumbers}`;
 
   }
   else{
-    message.innerText="<br>non hai ricordato alcun numero";
+    message.innerHTML="<br>non hai ricordato alcun numero";
   }
 }
 }
