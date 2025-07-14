@@ -106,14 +106,85 @@ function play(){
 }  
 
 function insertNumbers(simonNumbers){
+  
   let myNumbers=[];
   let rememberedNumbers=[];
   let message = document.getElementById('message');
   let button=document.querySelector('.btn')
-  console.log(button)   
-                            //debug
+  //prendiamo tutti i campi input con classe .form-control
+  let inputs=document.querySelectorAll('.form-control')
+  
+  console.log("message")                                   //debug   
+  console.log(message)                                   //debug   
+  console.log("button")                                   //debug   
+  console.log(button)                                   //debug   
+  console.log("inputs")                                   //debug   
+  console.log(inputs.item(0).classList)  
+  
   button.addEventListener('click',function(event){
     event.preventDefault();
-   
+    console.log(myNumbers);
+      for(let i=0; i<inputs.length ; i++){
+    // ogni volta che il button viene cliccato svuotiamo l'array per evitare bug 
+    myNumbers.pop();
+    //resettiamo le classi dei campi input  
+    console.log(`reset inputs.item(${i}).classList`)
+    console.log(inputs.item(i).classList)
+    inputs.item(i).className="form-control"
+  }
+//validazione degli input dopo aver prevenuto il refresh della pagina
+//scorriamo gli input per verificarne la proprietà value
+for(let i=0; i< inputs.length ; i++){
+
+ if(isNaN(parseInt(inputs.item(i).value))) {
+    inputs.item(i).classList.add("bg-danger")
+    console.log(inputs.item(i))
+  }
+  else{
+    
+    console.log(isPresent(myNumbers,parseInt(inputs.item(i).value)))  // debug
+
+    if (isPresent(myNumbers,parseInt(inputs.item(i).value))){
+      if(inputs.item(i).classList.length>1){
+        inputs.item(i).classList.pop()
+      }
+      
+    }
+    else{
+      myNumbers.push(parseInt(inputs.item(i).value))
+      if(inputs.item(i).classList.length>1){
+        inputs.item(i).classList.pop()
+        
+      }
+      
+    }
+    
+  }                                  //debug   
+  
+}
+//controlliamo se abbiamo tutti i numer validi per proseguire
+console.log(simonNumbers)
+
+console.log(myNumbers)
+if(myNumbers.length===simonNumbers.length){
+  
+  //disabilitiamo il bottone
+  button.classList.replace("d-block","d-none")
+  //controlliamo quanti ne abbiamo ricordato
+  for(let i=0; i<myNumbers.length ; i++){  
+    if (isPresent(simonNumbers,myNumbers[i])){
+    rememberedNumbers.push(myNumbers[i])
+  }
+  
+  
+  if(rememberedNumbers.length>0){
+    message.innerText=`<br> hai ricordato ${rememberedNumbers.length} numeri : ${rememberedNumbers}`;
+
+  }
+  else{
+    message.innerText="<br>non hai ricordato alcun numero";
+  }
+}
+}
   })
 }
