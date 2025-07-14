@@ -139,7 +139,7 @@ for(let i=0; i< inputs.length ; i++){
  if(isNaN(parseInt(inputs.item(i).value))) {
     inputs.item(i).classList.add("bg-danger")
     console.log(inputs.item(i))
-     message.innerText=`<br>i campi in rosso non sono validi`
+     message.innerHTML=`<br>i campi in rosso non sono validi`
   }
   else{
     
@@ -148,7 +148,7 @@ for(let i=0; i< inputs.length ; i++){
     if (isPresent(myNumbers,parseInt(inputs.item(i).value))){
       if(inputs.item(i).classList.length>1){
         inputs.item(i).classList.pop()
-        message.innerText=`<br>i campi in rosso non sono validi`
+        message.innerHTML=`<br> i campi in rosso non sono validi`
       }
       
     }
