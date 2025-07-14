@@ -65,7 +65,7 @@ const spawn = (array) => {
 
 //scriviamo una funzione per eseguire il countdown e stampare man mano il numero di secondi mancanti
 function startGame(){
-  let time=1; //da ri cambiare in 30 secondi per la consegna 
+  let time=30; //da ri cambiare in 30 secondi per la consegna 
   let countdown = document.getElementById("countdown");
   //stampiamo time dentro il tag di id countdown facendolo così partire da 30
   countdown.innerText=time;
